@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Interview Prep System</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <h1>Interview Prep System</h1>
+        <p class="subtitle">Resume-tailored SDE II / Senior preparation portal</p>
+      </div>
+      <div class="topbar-actions">
+        <input id="searchInput" type="search" placeholder="Search topic, question, keyword..." />
+        <button id="themeToggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </header>
+
+    <main class="layout">
+      <aside class="sidebar">
+        <section class="card">
+          <h2>Dashboard</h2>
+          <div id="stats" class="stats-grid"></div>
+        </section>
+
+        <section class="card">
+          <h2>Navigate</h2>
+          <nav id="toc"></nav>
+        </section>
+
+        <section class="card">
+          <h2>Modes</h2>
+          <div class="mode-buttons">
+            <button data-mode="content" class="active">Q&A View</button>
+            <button data-mode="flashcards">Flashcards</button>
+            <button data-mode="quiz">Quiz</button>
+          </div>
+        </section>
+      </aside>
+
+      <section class="content-area">
+        <article id="contentView" class="card"></article>
+
+        <section id="flashcardsView" class="card hidden">
+          <h2>Flashcards Mode</h2>
+          <div class="flashcard" id="flashcard">
+            <p id="flashcardPrompt">Loading...</p>
+            <div id="flashcardAnswer" class="hidden"></div>
+          </div>
+          <div class="controls">
+            <button id="flipCard">Flip</button>
+            <button id="prevCard">Previous</button>
+            <button id="nextCard">Next</button>
+            <button id="markKnown">Mark Known</button>
+          </div>
+        </section>
+
+        <section id="quizView" class="card hidden">
+          <h2>Quiz Mode</h2>
+          <p id="quizQuestion">Loading...</p>
+          <textarea id="quizAnswerInput" rows="4" placeholder="Type your answer bullets..."></textarea>
+          <div class="controls">
+            <button id="showExpected">Show Expected Answer</button>
+            <button id="nextQuiz">Next Question</button>
+          </div>
+          <div id="quizExpected" class="expected hidden"></div>
+        </section>
+      </section>
+    </main>
+
+    <template id="statTemplate">
+      <div class="stat-item">
+        <span class="label"></span>
+        <strong class="value"></strong>
+      </div>
+    </template>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
